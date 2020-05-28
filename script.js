@@ -21,7 +21,7 @@ function generatePassword() {
 
   // Password length
   do {
-    prompt("Please enter the length of the password (min 8 and max 128)");
+    lengthInput = prompt("Please enter the length of the password (min 8 and max 128)");
   } while (lengthInput === null || lengthInput > 128 || lengthInput < 8);
   
   // Number of lowercase characters
