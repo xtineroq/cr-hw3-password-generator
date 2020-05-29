@@ -47,28 +47,25 @@ function generatePassword() {
   if (specCharInput === true) {
     pwCharSet += specChar;
   }
-  
-  // Loop to generate a random password
-  var randomIndex = Math.floor(Math.random() * pwCharSet.length);
 
-  for (var i = 0; i < lengthInput; i++) {
-    password += pwCharSet.charAt(randomIndex);
+  // Character type input validity check
+  if (lowercaseInput === true || uppercaseInput === true || numbersInput === true || specCharInput === true) {
+
+    // Loop to generate random password
+    for (var i = 0; i < lengthInput; i++) {
+      password += pwCharSet.charAt(
+        Math.floor(Math.random() * pwCharSet.length)
+      );
+    }
+    return password;
+
+  } else {
+    // Start over if no character type was selected
+    alert("You have to select at least one character type. Let's do this again!");
+    password = generatePassword();
   }
-  return password;
 
 }
-
-// Calling checkValidity function
-// var result = password.checkValidity();
-
-// Checking validity
-// function checkValidity (password) {
-//   if (password == null) {
-//     alert("You have to select at least one character type. Let's do this again!");
-//     generatePassword();
-//   }
-// }
-
 
 
 // Add event listener to generate button
