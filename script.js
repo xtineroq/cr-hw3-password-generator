@@ -4,6 +4,10 @@ var lowercase = "abcdefghijklmnopqrstuvwxyz";
 var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var numbers = "0123456789";
 var specChar = "!@#$%^&*()_+~`|}{[]:;?><,./-=";
+var lowercaseInput = "";
+var uppercaseInput = "";
+var numbersInput = "";
+var specCharInput = "";
 
 // Write password to the #password input
 function writePassword() {
@@ -25,53 +29,49 @@ function generatePassword() {
   } while (lengthInput === null || lengthInput > 128 || lengthInput < 8);
   
   // Number of lowercase characters
-  var lowercaseInput = confirm("Do you want to include lowercase characters?");
+  lowercaseInput = confirm("Do you want to include lowercase characters?");
   if (lowercaseInput === true) {
     pwCharSet += lowercase;
   }
   
   // Number of uppercase characters
-  var uppercaseInput = confirm("Do you want to include uppercase characters");
+  uppercaseInput = confirm("Do you want to include uppercase characters");
   if (uppercaseInput === true) {
     pwCharSet += uppercase;
   }
 
   // Number of numeric characters
-  var numbersInput = confirm("Do you want to include numeric characters?");
+  numbersInput = confirm("Do you want to include numeric characters?");
   if (numbersInput === true) {
     pwCharSet += numbers;
   }
   
   // Number of special characters
-  var specCharInput = confirm("Do you want to include special characters?");
+  specCharInput = confirm("Do you want to include special characters?");
   if (specCharInput === true) {
     pwCharSet += specChar;
   }
 
-  // Character type input validity check
-  if (lowercaseInput === true || uppercaseInput === true || numbersInput === true || specCharInput === true) {
+  // Call checkValidity function
+  checkValidity();
 
-    // Loop to generate random password
-    for (var i = 0; i < lengthInput; i++) {
-      password += pwCharSet.charAt(
-        Math.floor(Math.random() * pwCharSet.length)
-      );
-    }
-    return password;
-
-  } else {
-    // Start over if no character type was selected
-    alert("You have to select at least one character type. Let's do this again!");
-    password = generatePassword();
+  // Loop to generate random password
+  for (var i = 0; i < lengthInput; i++) {
+    password += pwCharSet.charAt(
+      Math.floor(Math.random() * pwCharSet.length)
+    );
   }
+  return password;
+}
 
+// Character type input validity check
+function checkValidity() {
+  if (lowercaseInput === false && uppercaseInput === false && numbersInput === false && specCharInput === false) {
+    alert("You have to select at least one character type. Please click the 'Generate Password' button again.");
+  }
 }
 
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-// 
-// function clean(){
-//   document.getElementById("#password").innerHTML='';
-// }
