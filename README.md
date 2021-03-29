@@ -1,5 +1,4 @@
-# cr-hw3-password-generator
-Monash University Bootcamp Assignment - Password Generator
+# Password Generator
 
 ```
 This code will generate a secure password depending on the user's criteria.
@@ -24,3 +23,5 @@ The user will be presented with a series of prompts for password criteria:
 ![Start Page](Assets/Start.png)
 ![Alert No Character Type Selected](Assets/CheckValidityAlert.png)
 ![Password Generation](Assets/PasswordGenerated.png)
+
+Deployed Application: https://xtineroq.github.io/password-generator/
