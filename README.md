@@ -1,7 +1,7 @@
 # Password Generator
 
 ```
-This code will generate a secure password depending on the user's criteria.
+This code will generate a secure password based on user's chosen criteria.
 ```
 
 When the user clicks the 'Generate Password' button,
